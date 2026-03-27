@@ -57,7 +57,6 @@
     }
 
     img {
-        max-width: 100%;
         display: block;
     }
 
@@ -140,6 +139,18 @@
     margin: 2rem auto;
 }
 
+.profile-divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary);
+    opacity: 0.25;
+    margin: 1em 0;
+}
+
+.margin-top-5 {
+    margin-top: 5rem;
+}
+
 /* --- HERO SECTION --- */
 .hero {
     min-height: 100vh;
@@ -157,7 +168,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 4rem;
+    padding: 2em 4em;
     z-index: 1000;
     background: linear-gradient(rgba(42, 16, 36, 0.3), rgba(42, 16, 36, 0));
 }
@@ -284,7 +295,7 @@
 
 .hero-footer {
     max-width: 1500px;
-    margin: 0 auto;
+    margin: 2rem auto 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 4rem;
@@ -312,6 +323,10 @@
 /* --- SECTIONS --- */
 section {
     padding: 8rem 0;
+
+    > p {
+        padding: 0.5em 0;
+    }
 }
 
 .testimonials {
@@ -374,6 +389,14 @@ section {
         padding-top: 2rem;
         color: var(--primary) !important;
     }
+
+    ul {
+        color: var(--secondary);
+    }
+
+    li {
+        margin: 1rem 0;
+    }
 }
 
 .philosophy {
@@ -399,6 +422,14 @@ section {
 
     .h3-alt {
         color: var(--surface);
+    }
+
+    h4 {
+        font-size: 2em;
+    }
+
+    .section-header {
+        margin: 0 0 2rem 0;
     }
 }
 
@@ -470,7 +501,17 @@ section {
 .intro-left p {
     max-width: 500px;
     color: var(--secondary);
+    margin: 1rem 0;
 }
+
+.service-text {
+    margin: 0 0 5rem 0;
+
+    p {
+        color: var(--secondary);
+    }
+}
+
 .btn-solid {
     border-radius: 0.5rem;
     background: var(--primary);
@@ -545,10 +586,150 @@ section {
     }
 }
 
+/* Secondary Pages */
+
+.alt-hero {
+    background-color: var(--neutral);
+}
+
+.alt-hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+
+    h1 {
+        font-size: 5rem;
+        color: var(--surface);
+    }
+
+    p {
+        color: var(--secondary);
+        padding: 0.5rem 0;
+        font-size: var(--fs-large);
+    }
+}
+
+.alt-hero-content nav {
+    display: flex;
+    gap: 0.5rem;
+    font-size: var(--fs-medium);
+}
+
+.breadcrumb-nav {
+    color: var(--surface);
+
+    a {
+        color: var(--accent);
+    }
+}
+
+.our-story-container {
+    h2 {
+        color: var(--primary);
+    }
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: row;
+    gap: 8rem;
+
+    h2 {
+        font-family: var(--font-serif);
+        font-size: var(--fs-xxxl);
+    }
+
+    p {
+        padding: 0.5em 0;
+    }
+
+    .profile-title {
+        color: var(--primary);
+        font-weight: 700;
+    }
+
+    .profile-img {
+        max-width: 350px;
+        max-height: 520px;
+    }
+}
+
+@media (max-width: 890px) {
+    .profile-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+.profile-img {
+    position: relative;
+    display: inline-block;
+
+    img {
+        display: block;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.profile-img::before {
+    content: "Founder";
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+    padding: 1em 2em;
+    background-color: var(--neutral);
+    color: var(--surface);
+    z-index: 3;
+    word-spacing: 1;
+}
+
+.profile-img::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    min-width: 350px;
+    min-height: 525px;
+    border: 2px solid var(--accent);
+    z-index: 1;
+    opacity: 0.25;
+}
+
+.reverse {
+    flex-direction: row-reverse;
+
+    @media (max-width: 890px) {
+        flex-direction: column;
+    }
+}
+
+.profile-quote {
+    text-align: center;
+    font-size: var(--fs-xxxl);
+    font-family: var(--font-serif);
+    padding: 3rem 0;
+
+    em {
+        color: var(--primary);
+    }
+}
+
+.services-container h3 {
+    font-size: var(--fs-large);
+    margin: 0;
+}
+
+.service-btn {
+    margin-top: 2em;
+    display: inline-block;
+}
+
 /*--Footer--*/
 footer {
-    padding: 5rem 0;
+    padding: 5em 0;
     background-color: var(--neutral);
+    margin: 10em 0 0;
 }
 
 .footer-container {

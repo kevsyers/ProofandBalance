@@ -15,6 +15,8 @@
     --fs-xlarge: 2rem;
     --fs-xxl: 2.5rem;
     --fs-xxxl: 3.5rem;
+
+    --transition-smooth: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @layer reset {
@@ -723,6 +725,270 @@ section {
 .service-btn {
     margin-top: 2em;
     display: inline-block;
+}
+
+/* Contact Form */
+.form-page-wrapper {
+    margin-top: 2em;
+}
+/* --- Form Container & Progress --- */
+.form-container {
+    background: white;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(101, 28, 83, 0.08);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar-container {
+    background: var(--secondary);
+    height: 8px;
+    width: 100%;
+    position: relative;
+    margin-top: 1em;
+}
+.progress-fill {
+    background: var(--primary);
+    height: 100%;
+    width: 20%;
+    transition: width 0.5s ease;
+}
+
+.step-indicator {
+    padding: 30px 40px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--accent);
+}
+.step-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--neutral);
+}
+
+/* --- Form Steps Logic --- */
+.form-step {
+    display: none;
+    padding: 40px;
+    animation: fadeIn 0.4s ease forwards;
+}
+.form-step.active {
+    display: block;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.8rem;
+    color: var(--primary-plum);
+    margin-bottom: 8px;
+}
+.step-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* --- Input Styling --- */
+.input-group {
+    margin-bottom: 24px;
+}
+.input-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--neutral);
+}
+.form-control {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: #fafafa;
+}
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(101, 28, 83, 0.1);
+}
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* --- Custom Radio/Checkbox "Cards" --- */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.options-grid-1col {
+    grid-template-columns: 1fr;
+}
+.options-grid-2col {
+    grid-template-columns: 1fr 1fr;
+}
+.options-grid-3col {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.option-label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+.option-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.option-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: white;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+    font-weight: 500;
+    color: var(--neutral);
+}
+
+.option-label:hover .option-card {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--white);
+}
+
+/* Checked State */
+.option-label input:checked ~ .option-card {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white);
+}
+.option-label input:focus-visible ~ .option-card {
+    outline: 3px solid var(--secondary);
+    outline-offset: 2px;
+}
+.option-label input:checked ~ .option-card::after {
+    background-color: white;
+    border-color: white;
+    /* Plum colored SVG checkmark */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23651c53' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+/* Checkmark / Radio Indicator */
+.option-card::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-left: 12px;
+    flex-shrink: 0;
+    border: 2px solid var(--primary);
+    border-radius: 50%; /* Circle for radio buttons */
+    transition: all var(--transition-smooth);
+    background-color: var(--white);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+}
+
+/* Square indicator for checkboxes */
+.option-label input[type="checkbox"] ~ .option-card::after {
+    border-radius: 4px;
+}
+
+/* --- Form Footer Buttons --- */
+.form-footer {
+    padding: 30px 40px;
+    background: var(--surface);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-prev {
+    background: transparent;
+    color: var(--text-muted);
+    border: 2px solid var(--accent);
+}
+.btn-prev:hover {
+    background: #f0f0f0;
+    color: var(--primary);
+}
+
+.btn-next {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 14px rgba(101, 28, 83, 0.2);
+}
+.btn-next:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(101, 28, 83, 0.3);
+    background-color: #4d153f;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+@media (max-width: 600px) {
+    .form-step {
+        padding: 30px 20px;
+    }
+    .form-footer {
+        padding: 20px;
+        flex-direction: column-reverse;
+        gap: 16px;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /*--Footer--*/

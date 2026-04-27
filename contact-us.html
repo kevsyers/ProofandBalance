@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Proof & Balance | Boutique Bookkeeping</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header class="alt-hero">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">
+                        <img
+                            src="./assets/images/PB-logo-reverse.svg"
+                            alt="Proof & Balance Logo"
+                        />
+                    </a>
+                </div>
+
+                <ul class="nav-links" aria-label="Primary">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="our-story.html">Story</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact-us.html">Contact</a></li>
+                    <li><a href="#" class="btn-outline">Book Now →</a></li>
+                </ul>
+            </nav>
+            <div class="alt-hero-content">
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span>Contact Us</span>
+                </nav>
+                <h1>Contact Us</h1>
+                <p>
+                    Tell us about your business and financial needs. This
+                    detailed inquiry helps us prepare for our first
+                    conversation.
+                </p>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="form-page-wrapper">
+                <div class="form-header">
+                    <h2>Find Your Balance.</h2>
+                </div>
+
+                <form class="form-container" id="quoteForm" novalidate>
+                    <div class="progress-bar-container">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+
+                    <div class="step-indicator">
+                        <span class="step-text" id="stepIndicatorText"
+                            >Step 1 of 5</span
+                        >
+                    </div>
+
+                    <!-- STEP 1: Contact Info -->
+                    <div class="form-step active" data-step="1">
+                        <h2 class="step-title">Your Details</h2>
+                        <p class="step-subtitle">
+                            Who should we address our proposal to?
+                        </p>
+
+                        <div class="input-group">
+                            <label for="clientName">Full Name</label>
+                            <input
+                                type="text"
+                                id="clientName"
+                                name="clientName"
+                                class="form-control"
+                                placeholder="Jane Doe"
+                                required
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="clientEmail">Email Address</label>
+                            <input
+                                type="email"
+                                id="clientEmail"
+                                name="clientEmail"
+                                class="form-control"
+                                placeholder="jane@company.com"
+                                required
+                            />
+                        </div>
+                        <div class="input-group">
+                            <label for="clientPhone">Phone Number</label>
+                            <input
+                                type="tel"
+                                id="clientPhone"
+                                name="clientPhone"
+                                class="form-control"
+                                placeholder="(555) 123-4567"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Business Basics -->
+                    <div class="form-step" data-step="2">
+                        <h2 class="step-title">Business Basics</h2>
+                        <p class="step-subtitle">
+                            Help us understand the structure and scale of your
+                            operation.
+                        </p>
+
+                        <div class="input-group">
+                            <label for="businessName">Business Name</label>
+                            <input
+                                type="text"
+                                id="businessName"
+                                name="businessName"
+                                class="form-control"
+                                placeholder="Acme Corp"
+                                required
+                            />
+                        </div>
+
+                        <div
+                            style="
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                gap: 16px;
+                            "
+                        >
+                            <div class="input-group">
+                                <label for="industry">Industry</label>
+                                <select
+                                    id="industry"
+                                    name="industry"
+                                    class="form-control"
+                                >
+                                    <option value="">
+                                        Select an industry...
+                                    </option>
+                                    <option value="Construction">
+                                        Construction
+                                    </option>
+                                    <option value="Real Estate">
+                                        Real Estate / Property Management
+                                    </option>
+                                    <option value="E-commerce">
+                                        E-commerce
+                                    </option>
+                                    <option value="Professional Services">
+                                        Professional Services
+                                    </option>
+                                    <option value="Health">
+                                        Health & Wellness
+                                    </option>
+                                    <option value="Restaurant">
+                                        Restaurant / Food Service
+                                    </option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="entityType">Entity Type</label>
+                                <select
+                                    id="entityType"
+                                    name="entityType"
+                                    class="form-control"
+                                >
+                                    <option value="">Select entity...</option>
+                                    <option value="LLC">LLC</option>
+                                    <option value="S-Corp">S-Corp</option>
+                                    <option value="Partnership">
+                                        Partnership
+                                    </option>
+                                    <option value="Sole Proprietor">
+                                        Sole Proprietor
+                                    </option>
+                                    <option value="Not Sure">Not sure</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-group" style="margin-top: 10px">
+                            <label>What is your average monthly revenue?</label>
+                            <div class="options-grid">
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="revenue"
+                                        value="<10k"
+                                    />
+                                    <div class="option-card">
+                                        Less than $10,000
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="revenue"
+                                        value="10k-50k"
+                                    />
+                                    <div class="option-card">
+                                        $10,000 – $50,000
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="revenue"
+                                        value="50k-150k"
+                                    />
+                                    <div class="option-card">
+                                        $50,000 – $150,000
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="revenue"
+                                        value="150k-500k"
+                                    />
+                                    <div class="option-card">
+                                        $150,000 – $500,000
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="revenue"
+                                        value="500k+"
+                                    />
+                                    <div class="option-card">
+                                        $500,000+
+                                    </div></label
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Current Status -->
+                    <div class="form-step" data-step="3">
+                        <h2 class="step-title">Current Landscape</h2>
+                        <p class="step-subtitle">
+                            Where do things stand right now with your finances?
+                        </p>
+
+                        <div class="input-group">
+                            <label
+                                >Where are you currently with your books?</label
+                            >
+                            <div class="options-grid options-grid-1col">
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="bookStatus"
+                                        value="Up to date"
+                                    />
+                                    <div class="option-card">
+                                        Everything is up to date
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="bookStatus"
+                                        value="1-3 months behind"
+                                    />
+                                    <div class="option-card">
+                                        A little behind (1–3 months)
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="bookStatus"
+                                        value="3-12 months behind"
+                                    />
+                                    <div class="option-card">
+                                        Several months behind (3–12 months)
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="bookStatus"
+                                        value="Over a year behind"
+                                    />
+                                    <div class="option-card">
+                                        Over a year behind
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="bookStatus"
+                                        value="No setup"
+                                    />
+                                    <div class="option-card">
+                                        I have no bookkeeping set up at all
+                                    </div></label
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>What system are you currently using?</label>
+                            <div class="options-grid">
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="software"
+                                        value="QBO"
+                                    />
+                                    <div class="option-card">
+                                        QuickBooks Online
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="software"
+                                        value="QBD"
+                                    />
+                                    <div class="option-card">
+                                        QuickBooks Desktop
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="software"
+                                        value="Xero"
+                                    />
+                                    <div class="option-card">Xero</div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="software"
+                                        value="Wave"
+                                    />
+                                    <div class="option-card">Wave</div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="software"
+                                        value="Excel"
+                                    />
+                                    <div class="option-card">
+                                        Excel / Spreadsheets
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="software"
+                                        value="Nothing"
+                                    />
+                                    <div class="option-card">
+                                        Nothing yet / Not sure
+                                    </div></label
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label
+                                >Who currently manages your bookkeeping?</label
+                            >
+                            <div class="options-grid">
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="manager"
+                                        value="Myself"
+                                    />
+                                    <div class="option-card">
+                                        I do it myself
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="manager"
+                                        value="In-house"
+                                    />
+                                    <div class="option-card">
+                                        In-house employee
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="manager"
+                                        value="Other Bookkeeper"
+                                    />
+                                    <div class="option-card">
+                                        Another bookkeeper
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="manager"
+                                        value="CPA"
+                                    />
+                                    <div class="option-card">
+                                        CPA only (no ongoing)
+                                    </div></label
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Needs & Complexities -->
+                    <div class="form-step" data-step="4">
+                        <h2 class="step-title">Needs & Frustrations</h2>
+                        <p class="step-subtitle">
+                            Select the services you need and tell us what's
+                            keeping you up at night.
+                        </p>
+
+                        <div class="input-group">
+                            <label
+                                >What services are you interested in? (Select
+                                all that apply)</label
+                            >
+                            <div class="options-grid">
+                                <label class="option-label"
+                                    ><input
+                                        type="checkbox"
+                                        name="services"
+                                        value="Monthly"
+                                    />
+                                    <div class="option-card">
+                                        Monthly bookkeeping
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="checkbox"
+                                        name="services"
+                                        value="Catch-up"
+                                    />
+                                    <div class="option-card">
+                                        Catch-up / clean-up
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="checkbox"
+                                        name="services"
+                                        value="Reports"
+                                    />
+                                    <div class="option-card">
+                                        Financial reports
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="checkbox"
+                                        name="services"
+                                        value="Payroll"
+                                    />
+                                    <div class="option-card">
+                                        Payroll
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="checkbox"
+                                        name="services"
+                                        value="AP"
+                                    />
+                                    <div class="option-card">
+                                        Accounts payable (bills)
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="checkbox"
+                                        name="services"
+                                        value="AR"
+                                    />
+                                    <div class="option-card">
+                                        Accounts receivable
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="checkbox"
+                                        name="services"
+                                        value="Job Costing"
+                                    />
+                                    <div class="option-card">
+                                        Job costing
+                                    </div></label
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label
+                                >What’s your biggest frustration right
+                                now?</label
+                            >
+                            <div class="options-grid options-grid-1col">
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="painPoint"
+                                        value="Numbers unknown"
+                                    />
+                                    <div class="option-card">
+                                        I don’t know my numbers
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="painPoint"
+                                        value="Messy books"
+                                    />
+                                    <div class="option-card">
+                                        My books are messy or inaccurate
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="painPoint"
+                                        value="Time drain"
+                                    />
+                                    <div class="option-card">
+                                        I’m spending too much time on
+                                        bookkeeping
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="painPoint"
+                                        value="Taxes"
+                                    />
+                                    <div class="option-card">
+                                        Taxes are a mess
+                                    </div></label
+                                >
+                            </div>
+                        </div>
+
+                        <div
+                            style="
+                                display: grid;
+                                grid-template-columns: 1fr 1fr 1fr;
+                                gap: 16px;
+                                margin-top: 30px;
+                            "
+                        >
+                            <div class="input-group">
+                                <label>Bank Accounts?</label>
+                                <select
+                                    name="bankAccounts"
+                                    class="form-control"
+                                >
+                                    <option value="1-2">1–2</option>
+                                    <option value="3-5">3–5</option>
+                                    <option value="6+">6+</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Credit Cards?</label>
+                                <select name="creditCards" class="form-control">
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Loans / Lines?</label>
+                                <select name="loans" class="form-control">
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STEP 5: Wrap Up -->
+                    <div class="form-step" data-step="5">
+                        <h2 class="step-title">Final Details</h2>
+                        <p class="step-subtitle">
+                            Just a few last questions before we connect.
+                        </p>
+
+                        <div class="input-group">
+                            <label
+                                >Do you have access to your financial
+                                records?</label
+                            >
+                            <div class="options-grid options-grid-1col">
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="readiness"
+                                        value="Organized"
+                                    />
+                                    <div class="option-card">
+                                        Yes, everything is organized
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="readiness"
+                                        value="Messy"
+                                    />
+                                    <div class="option-card">
+                                        Yes, but it’s somewhat messy
+                                    </div></label
+                                >
+                                <label class="option-label"
+                                    ><input
+                                        type="radio"
+                                        name="readiness"
+                                        value="Missing"
+                                    />
+                                    <div class="option-card">
+                                        Some records are missing / I'm not sure
+                                    </div></label
+                                >
+                            </div>
+                        </div>
+
+                        <div
+                            style="
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                gap: 16px;
+                            "
+                        >
+                            <div class="input-group">
+                                <label>When are you looking to start?</label>
+                                <select name="timeline" class="form-control">
+                                    <option value="ASAP">ASAP</option>
+                                    <option value="30 days">
+                                        Within 30 days
+                                    </option>
+                                    <option value="1-3 months">
+                                        1–3 months
+                                    </option>
+                                    <option value="Exploring">
+                                        Just exploring options
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Monthly Budget (Optional)</label>
+                                <select name="budget" class="form-control">
+                                    <option value="">Not sure yet</option>
+                                    <option value="$500">$500</option>
+                                    <option value="$1,000">$1,000</option>
+                                    <option value="$2,500">$2,500</option>
+                                    <option value="$2,500+">$2,500+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="additionalNotes"
+                                >Anything else we should know before the
+                                call?</label
+                            >
+                            <textarea
+                                id="additionalNotes"
+                                name="additionalNotes"
+                                class="form-control"
+                                placeholder="E.g., I have an immediate deadline, or I need help migrating from Excel..."
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Form Navigation -->
+                    <div class="form-footer">
+                        <button
+                            type="button"
+                            class="btn btn-prev"
+                            id="prevBtn"
+                            style="display: none"
+                        >
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg>
+                            Previous
+                        </button>
+                        <div style="flex-grow: 1"></div>
+                        <!-- Spacer -->
+                        <button type="button" class="btn btn-next" id="nextBtn">
+                            Next Step
+                            <svg
+                                width="20"
+                                height="20"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                            >
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Success Message (Hidden by default) -->
+                <div
+                    id="successMessage"
+                    style="
+                        display: none;
+                        text-align: center;
+                        max-width: 600px;
+                        margin-top: 60px;
+                    "
+                >
+                    <div
+                        style="
+                            width: 80px;
+                            height: 80px;
+                            background: var(--lavender-soft);
+                            color: var(--primary-plum);
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin: 0 auto 24px;
+                        "
+                    >
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    <h2
+                        style="
+                            font-family: &quot;Playfair Display&quot;, serif;
+                            font-size: 2.5rem;
+                            color: var(--primary-plum);
+                            margin-bottom: 16px;
+                        "
+                    >
+                        Proposal Request Sent
+                    </h2>
+                    <p
+                        style="
+                            color: var(--text-muted);
+                            font-size: 1.1rem;
+                            margin-bottom: 30px;
+                        "
+                    >
+                        Thank you for sharing your business details. Our team
+                        will review your information and be in touch shortly to
+                        discuss your custom bookkeeping architecture.
+                    </p>
+                    <a
+                        href="index.html"
+                        class="btn btn-next"
+                        style="display: inline-flex; text-decoration: none"
+                        >Return to Home</a
+                    >
+                </div>
+            </div>
+            <!-- End Form  -->
+        </div>
+        <footer>
+            <div class="container">
+                <div class="footer-container">
+                    <div>
+                        <div class="footer-logo">
+                            <img
+                                src="assets/images/PB-Logo-Stack-Reverse.svg"
+                                alt="Proof & Balance Logo"
+                            />
+                        </div>
+                        <p class="footer-text">
+                            A boutique advisory service treating bookkeeping as
+                            a high-end partnership. We provide clarity and
+                            confidence for the modern entrepreneur.
+                        </p>
+                    </div>
+                    <div class="footer-nav-wrap">
+                        <p class="footer-title">Navigation</p>
+                        <ul class="footer-nav-list">
+                            <li><a href="our-story.html">Story</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="contact-us.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -138,7 +138,34 @@ document.addEventListener("DOMContentLoaded", () => {
                     Accept: "application/json",
                 },
                 body: JSON.stringify(data),
-            });
+            })
+                .then(async (response) => {
+                    const result = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(
+                            result.message || "Form submission failed",
+                        );
+                    }
+
+                    return result;
+                })
+                .then(() => {
+                    form.style.display = "none";
+                    document.querySelector(".form-header").style.display =
+                        "none";
+                    successMessage.style.display = "block";
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                })
+                .catch((error) => {
+                    console.error("Form submission error:", error);
+                    alert(
+                        error.message ||
+                            "There was an issue sending your request.",
+                    );
+                    nextBtn.innerHTML = originalBtnText;
+                    nextBtn.disabled = false;
+                });
         }
     });
 

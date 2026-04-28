@@ -118,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
             nextBtn.disabled = true;
 
             const formData = new FormData(form);
-
             const data = {};
 
             formData.forEach((value, key) => {
@@ -139,32 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     Accept: "application/json",
                 },
                 body: JSON.stringify(data),
-            })
-                .then(async (response) => {
-                    const result = await response.json();
-
-                    if (!response.ok) {
-                        console.error("FormSubmit error:", result);
-                        throw new Error(
-                            result.message || "Form submission failed",
-                        );
-                    }
-
-                    return result;
-                })
-                .then((data) => {
-                    form.style.display = "none";
-                    document.querySelector(".form-header").style.display =
-                        "none";
-                    successMessage.style.display = "block";
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                })
-                .catch((error) => {
-                    console.error("Form submission error:", error);
-                    alert(error.message);
-                    nextBtn.innerHTML = originalBtnText;
-                    nextBtn.disabled = false;
-                });
+            });
         }
     });
 

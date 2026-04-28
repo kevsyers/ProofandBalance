@@ -113,9 +113,9 @@ document.addEventListener("DOMContentLoaded", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
         } else {
             // --- AJAX FORM SUBMISSION ---
-            const originalBtnText = nextBtn.innerHTML;
             nextBtn.innerHTML = "Sending securely...";
             nextBtn.disabled = true;
+            form.submit();
 
             const formData = new FormData(form);
             const data = {};

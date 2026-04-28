@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- ACTION REQUIRED ---
     // REPLACE 'info@proofandbalance.com' WITH YOUR ACTUAL RECEIVING EMAIL ADDRESS
     const FORMSUBMIT_URL =
-        "[https://formsubmit.co/ajax/hello@proofandbalance.com](https://formsubmit.co/ajax/hello@proofandbalance.com)";
+        "https://formsubmit.co/ajax/hello@proofandbalance.com";
 
     let currentStep = 0;
 

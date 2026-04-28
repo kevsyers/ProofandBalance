@@ -89,7 +89,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (containsSpamPatterns(nameInput.value)) {
                 isValid = false;
                 nameInput.style.borderColor = "#d32f2f";
-                document.getElementById("nameError").style.display = "block";
+                const nameError = document.getElementById("nameError");
+                if (nameError) nameError.style.display = "block";
             }
         }
 
@@ -98,7 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (containsSpamPatterns(notesInput.value)) {
                 isValid = false;
                 notesInput.style.borderColor = "#d32f2f";
-                document.getElementById("notesError").style.display = "block";
+                const notesError = document.getElementById("notesError");
+                if (notesError) notesError.style.display = "block";
             }
         }
 

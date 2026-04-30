@@ -728,9 +728,19 @@ section {
 }
 
 /* Contact Form */
-.form-page-wrapper {
-    margin-top: 2em;
+.form-header {
+    padding: 2em 0 0;
 }
+
+.form-page-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-info p:has(a) {
+    padding: 1rem 0;
+}
+
 /* --- Form Container & Progress --- */
 .form-container {
     background: white;
@@ -989,6 +999,10 @@ textarea.form-control {
     .options-grid {
         grid-template-columns: 1fr;
     }
+
+    .alt-hero-content h1 {
+        font-size: 3rem;
+    }
 }
 
 /*--Footer--*/
@@ -1080,6 +1094,10 @@ footer {
 
     .btn-solid {
         margin-top: 3rem;
+    }
+
+    .form-page-wrapper {
+        flex-direction: column-reverse;
     }
 }
 

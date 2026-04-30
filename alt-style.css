@@ -1,0 +1,390 @@
+:root {
+    /* Brand Tokens */
+    --primary-plum: #651c53;
+    --secondary-lavender: #977993;
+    --lavender-soft: #f4eff3;
+    --text-dark: #1a1a1a;
+    --text-muted: #555555;
+    --bg-canvas: #fcfbfd;
+    --border-color: #e5e0e5;
+    --transition-smooth: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--bg-canvas);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- Grain Overlay --- */
+.grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* --- Header --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--primary-plum);
+}
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--primary-plum);
+    color: white;
+    display: grid;
+    place-items: center;
+    border-radius: 6px;
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+.logo-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.logo-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 2px;
+}
+.logo-tagline {
+    font-family: "Inter", sans-serif;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--secondary-lavender);
+    font-weight: 600;
+    line-height: 1;
+}
+
+.back-link {
+    font-weight: 600;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.back-link:hover {
+    color: var(--primary-plum);
+}
+
+/* --- Page Layout --- */
+.form-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 120px 5% 60px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+.form-header h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    color: var(--primary-plum);
+    margin-bottom: 10px;
+}
+.form-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* --- Form Container & Progress --- */
+.form-container {
+    background: white;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(101, 28, 83, 0.08);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar-container {
+    background: var(--lavender-soft);
+    height: 8px;
+    width: 100%;
+    position: relative;
+}
+.progress-fill {
+    background: var(--primary-plum);
+    height: 100%;
+    width: 20%;
+    transition: width 0.5s ease;
+}
+
+.step-indicator {
+    padding: 30px 40px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--lavender-soft);
+}
+.step-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--secondary-lavender);
+}
+
+/* --- Form Steps Logic --- */
+.form-step {
+    display: none;
+    padding: 40px;
+    animation: fadeIn 0.4s ease forwards;
+}
+.form-step.active {
+    display: block;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.step-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.8rem;
+    color: var(--primary-plum);
+    margin-bottom: 8px;
+}
+.step-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* --- Input Styling --- */
+.input-group {
+    margin-bottom: 24px;
+}
+.input-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+.form-control {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: #fafafa;
+}
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-plum);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(101, 28, 83, 0.1);
+}
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* --- Custom Radio/Checkbox "Cards" --- */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+.options-grid-1col {
+    grid-template-columns: 1fr;
+}
+.options-grid-2col {
+    grid-template-columns: 1fr 1fr;
+}
+.options-grid-3col {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.option-label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+.option-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.option-card {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.option-label:hover .option-card {
+    border-color: var(--secondary-lavender);
+    background: var(--lavender-soft);
+}
+
+/* Checked State */
+.option-label input:checked ~ .option-card {
+    background: var(--primary-plum);
+    border-color: var(--primary-plum);
+    color: white;
+}
+.option-label input:focus-visible ~ .option-card {
+    outline: 3px solid var(--secondary-lavender);
+    outline-offset: 2px;
+}
+
+/* Checkmark / Radio Indicator */
+.option-card::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-left: 12px;
+    flex-shrink: 0;
+    border: 2px solid var(--border-color);
+    border-radius: 50%; /* Circle for radio buttons */
+    transition: all var(--transition-smooth);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 12px;
+}
+
+/* Square indicator for checkboxes */
+.option-label input[type="checkbox"] ~ .option-card::after {
+    border-radius: 4px;
+}
+
+/* Checked State */
+.option-label input:checked ~ .option-card::after {
+    background-color: white;
+    border-color: white;
+    /* Plum colored SVG checkmark */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23651c53' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+/* --- Form Footer Buttons --- */
+.form-footer {
+    padding: 30px 40px;
+    background: var(--bg-canvas);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-prev {
+    background: transparent;
+    color: var(--text-muted);
+    border: 2px solid var(--border-color);
+}
+.btn-prev:hover {
+    background: #f0f0f0;
+    color: var(--text-dark);
+}
+
+.btn-next {
+    background: var(--primary-plum);
+    color: white;
+    box-shadow: 0 4px 14px rgba(101, 28, 83, 0.2);
+}
+.btn-next:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(101, 28, 83, 0.3);
+    background-color: #4d153f;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .form-step {
+        padding: 30px 20px;
+    }
+    .form-footer {
+        padding: 20px;
+        flex-direction: column-reverse;
+        gap: 16px;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+}
